@@ -51,7 +51,9 @@ spec:
       {{- end }}
       containers:
         - name: {{ .Chart.Name }}
+          {{- if or .Values.hostNetwork .Values.global.hostNetwork }}
           hostNetwork: true
+          {{- end }}        
           {{- if .Values.containerSecurityContext.enabled }}
           securityContext: {{- omit .Values.containerSecurityContext "enabled" | toYaml | nindent 12 }}
           {{- end }}

@@ -17,6 +17,7 @@ exports:
       ##
       imagePullSecrets: []
       storageClass: ""
+      hostNetwork: false
 
     ## @section Common parameters
 
@@ -91,6 +92,10 @@ exports:
     ## Note: ReadWriteMany PVCs are required to scale
     ##
     replicaCount: 1
+
+    ## @param hostNetwork Enable host networking
+    ##
+    hostNetwork: false
 
     ## @param revisionHistoryLimit The number of old history to retain to allow rollback
     ##
